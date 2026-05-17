@@ -4,13 +4,6 @@ The code in this repository implements the **Producer–Consumer problem** using
 
 ---
 
-## Problem Statement
-
-Implement the **Producer–Consumer problem** using **shared memory** and **three semaphores**.
-The implementation must satisfy the constraints specified in the assignment.
-
----
-
 ## Requirements & Constraints
 
 ### Shared Memory
@@ -88,18 +81,3 @@ Run the program:
 All semaphore operations are performed using **atomic `semop()` calls**.
 
 ---
-
-## Hint Recap
-
-- Use a **circular buffer** in shared memory
-- Use **three semaphores only**
-- Ensure **atomic multi-semaphore operations**
-- Parent process must handle **cleanup**
-
----
-
-## Notes
-
-- Proper error checking is expected for all system calls
-- Output should clearly show correct synchronization
-- Race conditions or deadlocks must be avoided
