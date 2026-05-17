@@ -1,26 +1,26 @@
-# Assignment 2: Producer–Consumer Using Shared Memory and Semaphores
+# Producer–Consumer Using Shared Memory and Semaphores
 
-This repository contains the solution for **Assignment 2** of the Operating Systems course, which implements the **Producer–Consumer problem** using **shared memory** and **System V semaphores** with strict atomicity requirements.
+The code in this repository implements the **Producer–Consumer problem** using **shared memory** and **System V semaphores** with strict atomicity requirements.
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 
 Implement the **Producer–Consumer problem** using **shared memory** and **three semaphores**.
 The implementation must satisfy the constraints specified in the assignment.
 
 ---
 
-## 🎯 Requirements & Constraints
+## Requirements & Constraints
 
-### 🔹 Shared Memory
+### Shared Memory
 - Create a shared memory segment using:
   - `shmget`
   - `shmat`
 - The **parent process must remove** the shared memory segment using:
   - `shmctl`
 
-### 🔹 Semaphores
+### Semaphores
 - Use **exactly three semaphores**:
   1. **Mutex semaphore** – controls exclusive access to the shared buffer
   2. **Empty semaphore** – counts empty slots in the buffer
@@ -28,40 +28,20 @@ The implementation must satisfy the constraints specified in the assignment.
 - Semaphore operations must be performed using:
   - `semop`
 - **Atomic P() and V() operations** must be used
-- ❌ Do NOT use separate semaphore calls for individual operations
+- Do NOT use separate semaphore calls for individual operations
 
-### 🔹 Processes
+### Processes
 - The program must create **three child processes** using `fork()`:
   - **Two producers**
   - **One consumer**
 
-### 🔹 Synchronization
+### Synchronization
 - Output must **clearly demonstrate synchronization** between producers and consumer.
 - Correct handling of mutual exclusion and buffer state is required.
 
 ---
 
-## 📂 Files to Submit
-
-The submission consists of the following files:
-
-1. **`main.c`**
-   - Creates shared memory and semaphores
-   - Forks child processes
-   - Coordinates producer and consumer execution
-   - Cleans up shared memory and semaphores
-
-2. **`buff.h`**
-   - Defines the shared buffer structure
-   - Declares buffer-related variables and function prototypes
-
-3. **`buff.c`**
-   - Implements buffer operations
-   - Handles insert/remove logic for the circular buffer
-
----
-
-## 🗂️ Program Structure
+## Program Structure
 
 ```
 .
@@ -73,7 +53,7 @@ The submission consists of the following files:
 
 ---
 
-## ⚙️ Compilation & Execution
+## Compilation & Execution
 
 Compile using GCC:
 
@@ -89,7 +69,7 @@ Run the program:
 
 ---
 
-## 🔁 Synchronization Logic
+## Synchronization Logic
 
 - **Producers**:
   - Wait on `empty`
@@ -109,7 +89,7 @@ All semaphore operations are performed using **atomic `semop()` calls**.
 
 ---
 
-## 💡 Hint Recap
+## Hint Recap
 
 - Use a **circular buffer** in shared memory
 - Use **three semaphores only**
@@ -118,15 +98,8 @@ All semaphore operations are performed using **atomic `semop()` calls**.
 
 ---
 
-## ⚠️ Notes
+## Notes
 
 - Proper error checking is expected for all system calls
 - Output should clearly show correct synchronization
 - Race conditions or deadlocks must be avoided
-
----
-
-## 📜 Academic Integrity
-
-This assignment is part of academic coursework.  
-All submitted work must be original and follow course integrity policies.
