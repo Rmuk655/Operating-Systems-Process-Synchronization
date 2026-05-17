@@ -28,10 +28,6 @@ The code in this repository implements the **Producer–Consumer problem** using
   - **Two producers**
   - **One consumer**
 
-### Synchronization
-- Output must **clearly demonstrate synchronization** between producers and consumer.
-- Correct handling of mutual exclusion and buffer state is required.
-
 ---
 
 ## Program Structure
