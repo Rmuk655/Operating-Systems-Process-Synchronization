@@ -30,15 +30,20 @@ The code in this repository implements the **Producer–Consumer problem** using
 
 ---
 
-## Program Structure
+## Repository structure
 
 ```
 .
-├── main.c        # Process creation, synchronization, and cleanup
-├── buff.h        # Shared buffer definition
-├── buff.c        # Buffer operations
-└── README.md     # Assignment documentation
+├── Assignment 1/                       # queue implementation (Queue.c / Queue.h / main.c) and problem statement
+├── Assignment_2/
+│   └── Krishnan_Ramanarayanan_CS24BTECH11036/
+│       ├── main.c                      # process creation, synchronization, and cleanup
+│       ├── buff.h                      # shared buffer definition
+│       └── buff.c                      # buffer operations
+└── README.md
 ```
+
+This README describes Assignment 2 (producer-consumer).
 
 ---
 
@@ -47,6 +52,7 @@ The code in this repository implements the **Producer–Consumer problem** using
 Compile using GCC:
 
 ```bash
+cd Assignment_2/Krishnan_Ramanarayanan_CS24BTECH11036
 gcc -Wall -o ass2 main.c buff.c
 ```
 
