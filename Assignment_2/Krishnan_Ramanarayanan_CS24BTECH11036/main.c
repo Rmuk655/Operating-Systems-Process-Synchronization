@@ -92,6 +92,7 @@ void producer(int semid, struct shared_buffer *buff, int id, int no_of_times)
 
         insert_item(buff, num);
         printf("Producer inserted %d into the buffer\n", num);
+        fflush(stdout); // children leave with _exit(), which does not flush stdio buffers
 
         V(semid, SEM_FULL);
         V(semid, SEM_MUTEX);
@@ -113,6 +114,7 @@ void consumer(int semid, struct shared_buffer *buff, int no_of_times)
 
         int num = remove_item(buff);
         printf("Consumer removed %d from the buffer\n", num);
+        fflush(stdout);
 
         V(semid, SEM_MUTEX);
         V(semid, SEM_EMPTY);
@@ -159,7 +161,8 @@ int main(int times, char *vec[])
     if (pid3 == 0)
     {
         srand(getpid());
-        consumer(semid, buff, no_of_times);
+        // There are two producers, so the consumer drains everything that is produced.
+        consumer(semid, buff, 2 * no_of_times);
     }
 
     waitpid(pid1, NULL, 0);

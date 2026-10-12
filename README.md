@@ -56,11 +56,22 @@ cd Assignment_2/Krishnan_Ramanarayanan_CS24BTECH11036
 gcc -Wall -o ass2 main.c buff.c
 ```
 
-Run the program:
+Run the program, giving the number of items each producer inserts (the consumer removes all `2 x N`):
 
 ```bash
-./ass2
+./ass2 5
 ```
+
+Example output (interleaving varies from run to run):
+
+```text
+Producer inserted 4821 into the buffer
+Producer inserted 1907 into the buffer
+Consumer removed 4821 from the buffer
+...
+```
+
+Without an argument the program exits immediately. The buffer holds 100 integers.
 
 ---
 
